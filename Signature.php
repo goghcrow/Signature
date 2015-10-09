@@ -146,7 +146,7 @@ class Signature
     private static function getSign(array $array)
     {
         self::vlist($array, $vlist);
-        ksort($vlist);
+        ksort($vlist, SORT_STRING); // php数组可以存放混合类型，sort默认混合类型排序，混合类型排序在静态编译语言下不是默认实现
         $all = [];
         foreach($vlist as $k => $v) {
             sort($v, SORT_STRING);
